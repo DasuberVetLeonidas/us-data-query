@@ -1,0 +1,50 @@
+<!-- search.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Search Results</title>
+</head>
+<body>
+    <form action="/search" method="GET">
+        <label for="dcmPath">Enter Query DCM Path:</label>
+        <input type="text" id="dcmPath" name="dcmPath"><br><br>
+
+        <label for="daysRange">Days Range:</label>
+        <input type="number" id="daysRange" name="daysRange"><br><br>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <h1>Search Results</h1>
+
+    <% if (images.length > 0) { %>
+        <div id="div1">
+            <h2>Your Query Image is:</h2>
+            <a href="/metadata?dcmPath=<%= images[0].dcm_path %>">
+                <img src="<%= images[0].png_path %>" alt="Query Image">
+            </a>
+            <p>Study Date Time: <%= images[0].study_date_time %></p>
+            <p>Image Path: <%= images[0].png_path %></p>
+        </div>
+
+        <div id="div2">
+            <h2>Other Images from the Same Patient on the Same Day:</h2>
+            <% images.slice(1).forEach(image => { %>
+                <div>
+                    <a href="/metadata?dcmPath=<%= image.dcm_path %>" target="_blank">
+                        <img src="<%= image.png_path %>" alt="Image">
+                    </a>
+                    <p>Study Date Time: <%= image.study_date_time %></p>
+                    <p>Image Path: <%= image.png_path %></p>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p>No images found for the provided image path.</p>
+    <% } %>
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Ultrasound SQL Query Page</title>
+</head>
+<body>
+    <p>Enter your query image details and days range, then click submit to find other images from the same patient.</p>
+    <form action="/" method="GET">
+        <label for="secondaryAnonymisedID">Secondary Anonymised ID:</label>
+        <input type="text" id="secondaryAnonymisedID" name="secondaryAnonymisedID"><br><br>
+        
+        <label for="studyDate">Study Date:</label>
+        <input type="date" id="studyDate" name="studyDate"><br><br>
+        
+        <label for="daysRange">Days Range:</label>
+        <input type="number" id="daysRange" name="daysRange"><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <% if (images.length > 0) { %>
+        <% images.forEach(image => { %>
+            <div>
+                <img src="<%= image.png_path %>" alt="Image">
+                <p>Study Date Time: <%= image.study_date_time %></p>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No images found for the provided query.</p>
+    <% } %>
+</body>
+</html>

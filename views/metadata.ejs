@@ -1,0 +1,20 @@
+<!-- metadata.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>DICOM Metadata</title>
+</head>
+<body>
+    <h1>DICOM Metadata</h1>
+    <ul>
+        <!-- <li>Patient Name: <%= metadata.patientName %></li> -->
+        <li>Study Date: <%= metadata.studyDate %></li>
+        <!-- Add more metadata properties here -->
+        <!-- <li>Text Annotations: <%= metadata.textAnnotations %></li> -->
+        <li>Pixel Spacings: <%= metadata.pixelSpacings %></li>
+    </ul>
+</body>
+</html>

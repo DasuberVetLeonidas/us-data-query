@@ -1,0 +1,55 @@
+/* styles.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form, div {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px; /* Increased max-width for better layout */
+}
+
+form input[type="text"],
+form input[type="number"],
+button[type="submit"] {
+  width: calc(100% - 40px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+div {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Increase image size */
+div img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  margin: 5px 0;
+}
